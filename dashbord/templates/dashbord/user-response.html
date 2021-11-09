@@ -1,0 +1,20 @@
+{% extends "dashbord/base.html" %}
+{% block content %}
+  {% block title %}
+      <h5>Your Answers</h5>
+  {% endblock %}
+    <div>
+
+      <form>
+        fucks <br>
+        {{name}}
+        {% for d in data %}
+        <div>
+          <p>{{d.0}}</p>
+          <input class="form-control" value="{{d.1}}" disabled>
+        </div>
+        <br>
+        {% endfor %}
+      </form>
+    </div>
+{% endblock %}

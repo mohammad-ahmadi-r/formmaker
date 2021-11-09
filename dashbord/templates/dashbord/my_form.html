@@ -1,0 +1,32 @@
+{% extends "dashbord/base.html" %}
+{% block content %}
+<!doctype html>
+<!--
+{% if message %}
+<div>
+  <h5>{{ message|safe }}</h5>
+</div>
+{% endif %}
+
+{% if Your_link %}
+  <div>
+    Your link: <a href="http://localhost:8000/form/v/{{form_id}}"/>http://localhost:8000/form/v/{{form_id}}</a>
+  </div>
+{% endif %}
+-->
+      <div class="container">
+          <div class="row">
+            {% for f in forms %}
+              <div class="col-sm-4">
+                <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">Form : {{f.name}}</h5>
+                      <a href="/d/{{f.id}}/" class="btn btn-dark" style="color:white">View Stats</a>
+                      <a href="/form/del/{{f.id}}/" class="btn btn-warning">Delete Form </a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+      </div>
+{% endblock %}

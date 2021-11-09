@@ -1,0 +1,22 @@
+{% extends 'dashbord/base.html' %}
+{% block content %}
+  {% block title %}
+      Form
+  {% endblock %}
+
+  {% block main %}
+      <h1>{{name}}</h1>
+        <form method="POST" action="{% url 'submit-form' form_id %}">
+<!--        <form method="POST" action="/form/s/{{ form_id }}/">-->
+          {% csrf_token %}
+            {% for i in inputs %}
+                <div>
+                    <input placeholder="{{ i.label }}" name="{{ i.id }}" class="form-control">
+                </div>
+                <br>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+<!--      <button type="submit" class="btn btn-primary">Pdf</button>-->
+  {% endblock %}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "dashbord/base.html" %}
+
+{% block content %}
+<!doctype html>
+<html lang="en">
+  {% if message %}
+    {{message|safe}}
+  {% endif %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+  </head>
+  <body>
+      <div class="container">
+        <h1 style="text-align: center;">{{f.name}}</h1>
+        <div class="round3">
+          {% for q in q %}
+            <div >
+              <br>
+              <div>
+                  <input placeholder="Question : {{ q.label }}" name="{{ q.id }}" class="form-control" disabled>
+              </div>
+              <br>
+            </div>
+          {% endfor %}
+        </div>
+        {% if rs.0.id == None %}
+          No response yet
+        {% else %}
+          <br>
+           <a class="btn btn-dark" href="http://localhost:8000/d/{{form_id}}/{{rs.0.id}}/submissions/"
+           role="button">View submissions</a>
+<!--          <a href="http://localhost:8000/d/{{form_id}}/{{rs.0.id}}/submissions/" style="color:black">View submissions</a><br>-->
+        {% endif %}
+        <br>
+        Form link: <a href="http://localhost:8000/form/v/{{form_id}}" style="color:black">http://localhost:8000/form/v/{{form_id}}</a><br>
+        Participants : {{len}}<br>
+
+      </div>
+  </body>
+</html>
+{% endblock %}
