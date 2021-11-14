@@ -1,57 +1,118 @@
 {% extends "dashbord/base.html" %}
-{% block content %}
-  {% if message %}
-  <div>
-    <h5>{{ message|safe }}</h5>
-  </div>
-  {% endif %}
+{% load static %}
+{% load i18n %}
+{% if LANGUAGE_CODE == 'en'%}
+  {% block content %}
+    {% if message %}
+    <div>
+      <h5>{{ message|safe }}</h5>
+    </div>
+    {% endif %}
 
-  {% block title %}
-      <h4>Create new form</h4><br>
+    {% block title %}
+        <h4>Create new form</h4><br>
+    {% endblock %}
+
+    {% block main %}
+        <form method="POST" id="form">
+            {% csrf_token %}
+            <div class="col-sm-10">
+                <input type="text" name="form-name" placeholder="Form Name" class="form-control">
+                <br>
+                <div id="questions">
+                </div>
+                <br>
+                <button type="button" class="btn btn-primary" onclick="createNewQuestion();">Create a new question</button>
+                <button type="button" class="btn btn-dark" onclick="submitForm();">Create this form</button>
+            </div>
+        </form>
+        <script>
+            var questionCount = 0;
+            function createNewQuestion() {
+                var DIV = document.createElement("div");
+                var BR = document.createElement("BR");
+                DIV.setAttribute('class' , 'round3');
+                DIV.setAttribute("id", questionCount);
+                DIV.innerHTML = `<input type="text" name="${questionCount}" placeholder="Enter your question prompt here: "
+                class="form-control"><br><button type="button" onclick='deleteQuestion(${questionCount});'
+                class='btn btn-danger'>Delete This Question</button>`;
+                BR.setAttribute("id", `br-${questionCount}`)
+                document.getElementById("questions").appendChild(DIV);
+                document.getElementById("questions").appendChild(BR);
+                questionCount++;
+            }
+
+            function submitForm() {
+                var INPUT = document.createElement("input");
+                INPUT.setAttribute("type", "hidden");
+                INPUT.setAttribute("name", "questionCount")
+                INPUT.setAttribute("value", questionCount)
+                document.getElementById("form").appendChild(INPUT);
+                document.getElementById("form").submit();
+            }
+
+            function deleteQuestion(name) {
+                document.getElementById(`br-${name}`).remove()
+                document.getElementById(name).remove()
+            }
+        </script>
+    {% endblock %}
   {% endblock %}
+{% else %}
+  {% block contant %}
+    {% if message %}
+    <div>
+      <h5>{{ message|safe }}</h5>
+    </div>
+    {% endif %}
 
-  {% block main %}
-      <form method="POST" id="form">
-          {% csrf_token %}
-          <div class="col-sm-10">
-              <input type="text" name="form-name" placeholder="Form Name" class="form-control">
-              <br>
-              <div id="questions">
-              </div>
-              <br>
-              <button type="button" class="btn btn-primary" onclick="createNewQuestion();">Create a new question</button>
-              <button type="button" class="btn btn-dark" onclick="submitForm();">Create this form</button>
-          </div>
-      </form>
-      <script>
-          var questionCount = 0;
-          function createNewQuestion() {
-              var DIV = document.createElement("div");
-              var BR = document.createElement("BR");
-              DIV.setAttribute('class' , 'round3');
-              DIV.setAttribute("id", questionCount);
-              DIV.innerHTML = `<input type="text" name="${questionCount}" placeholder="Enter your question prompt here: "
-              class="form-control"><br><button type="button" onclick='deleteQuestion(${questionCount});'
-              class='btn btn-danger'>Delete This Question</button>`;
-              BR.setAttribute("id", `br-${questionCount}`)
-              document.getElementById("questions").appendChild(DIV);
-              document.getElementById("questions").appendChild(BR);
-              questionCount++;
-          }
+    {% block titla %}
+        <h4>{% translate 'Create new form' %}</h4><br>
+    {% endblock %}
 
-          function submitForm() {
-              var INPUT = document.createElement("input");
-              INPUT.setAttribute("type", "hidden");
-              INPUT.setAttribute("name", "questionCount")
-              INPUT.setAttribute("value", questionCount)
-              document.getElementById("form").appendChild(INPUT);
-              document.getElementById("form").submit();
-          }
+    {% block maain %}
+        <form method="POST" id="form">
+            {% csrf_token %}
+            <div class="col-sm-10">
+                <input type="text" name="form-name" placeholder="نام فرم" class="form-control">
+                <br>
+                <div id="questions">
+                </div>
+                <br>
+                <button type="button" class="btn btn-primary" onclick="createNewQuestion();">{% translate 'Create a new question' %}</button>
+                <button type="button" class="btn btn-dark" onclick="submitForm();">{% translate 'Create this form' %}</button>
+            </div>
+        </form>
+        <script>
+            var questionCount = 0;
+            function createNewQuestion() {
+                var DIV = document.createElement("div");
+                var BR = document.createElement("BR");
+                DIV.setAttribute('class' , 'round3');
+                DIV.setAttribute("id", questionCount);
+                DIV.innerHTML = `<input type="text" name="${questionCount}" placeholder="سوال خود را وارد کنید "
+                class="form-control"><br><button type="button" onclick='deleteQuestion(${questionCount});'
+                class='btn btn-danger'>حذف سوال</button>`;
+                BR.setAttribute("id", `br-${questionCount}`)
+                document.getElementById("questions").appendChild(DIV);
+                document.getElementById("questions").appendChild(BR);
+                questionCount++;
+            }
 
-          function deleteQuestion(name) {
-              document.getElementById(`br-${name}`).remove()
-              document.getElementById(name).remove()
-          }
-      </script>
+            function submitForm() {
+                var INPUT = document.createElement("input");
+                INPUT.setAttribute("type", "hidden");
+                INPUT.setAttribute("name", "questionCount")
+                INPUT.setAttribute("value", questionCount)
+                document.getElementById("form").appendChild(INPUT);
+                document.getElementById("form").submit();
+            }
+
+            function deleteQuestion(name) {
+                document.getElementById(`br-${name}`).remove()
+                document.getElementById(name).remove()
+            }
+        </script>
+    {% endblock %}
   {% endblock %}
-{% endblock %}
+{% endif %}

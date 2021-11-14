@@ -1,0 +1,148 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-14 11:47+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\atent\templates\atent\forgot-password.html:27
+#: .\atent\templates\atent\forgot-password.html:31
+#: .\atent\templates\atent\reset-password.html:27
+msgid "Forgot Password"
+msgstr "قراموشی  رمز"
+
+#: .\atent\templates\atent\forgot-password.html:39
+#: .\atent\templates\atent\reset-password.html:39
+msgid "Submit"
+msgstr "ثبت"
+
+#: .\atent\templates\atent\login.html:59
+#: .\atent\templates\atent\register.html:63
+msgid "dashbord"
+msgstr "داشبورد"
+
+#: .\atent\templates\atent\login.html:66
+#: .\atent\templates\atent\register.html:70
+msgid "Username"
+msgstr "نام عبور"
+
+#: .\atent\templates\atent\login.html:68
+msgid "\"At least 3 charachter\""
+msgstr ""
+
+#: .\atent\templates\atent\login.html:72
+#: .\atent\templates\atent\register.html:76
+msgid "Password"
+msgstr "رمز"
+
+#: .\atent\templates\atent\login.html:74
+msgid "\"Use numbers and words\""
+msgstr ""
+
+#: .\atent\templates\atent\login.html:79
+msgid "Login"
+msgstr "ورود"
+
+#: .\atent\templates\atent\login.html:85
+msgid "Not register?"
+msgstr "ثبت نام نکرده اید؟"
+
+#: .\atent\templates\atent\register.html:82
+msgid "Email"
+msgstr "ایمیل"
+
+#: .\atent\templates\atent\register.html:89
+msgid "Register"
+msgstr "ثبت نام"
+
+#: .\atent\templates\atent\reset-password.html:31
+msgid "Change password for"
+msgstr "تغیرر رمز برای"
+
+#: .\dashbord\templates\dashbord\base.html:170
+#: .\dashbord\templates\dashbord\base.html:400
+msgid "Go"
+msgstr "برو"
+
+#: .\dashbord\templates\dashbord\base.html:219
+#: .\dashbord\templates\dashbord\base.html:449
+msgid "My form"
+msgstr "فرم های من"
+
+#: .\dashbord\templates\dashbord\base.html:224
+#: .\dashbord\templates\dashbord\base.html:452
+msgid "Form maker"
+msgstr "فرم ساز"
+
+#: .\dashbord\templates\dashbord\form.html:15
+#: .\dashbord\templates\dashbord\form.html:59
+msgid "Document"
+msgstr "سند"
+
+#: .\dashbord\templates\dashbord\form.html:26
+#: .\dashbord\templates\dashbord\form.html:70
+msgid "Question"
+msgstr "سوال"
+
+#: .\dashbord\templates\dashbord\form.html:33
+#: .\dashbord\templates\dashbord\form.html:77
+msgid "No response yet"
+msgstr "پاسخی در یافت نشد"
+
+#: .\dashbord\templates\dashbord\form.html:37
+#: .\dashbord\templates\dashbord\form.html:81
+msgid "View submissions"
+msgstr "نمایش نتایج"
+
+#: .\dashbord\templates\dashbord\form.html:41
+#: .\dashbord\templates\dashbord\form.html:85
+msgid "Form link"
+msgstr "لینک فرم"
+
+#: .\dashbord\templates\dashbord\form.html:42
+#: .\dashbord\templates\dashbord\form.html:86
+msgid "Participants"
+msgstr "شرکت کنندگان"
+
+#: .\dashbord\templates\dashbord\user-response.html:28
+msgid "Your Answers"
+msgstr "پاسخ های شما"
+
+#: .\dashbord\templates\dashbord\view-response.html:34
+#, fuzzy
+#| msgid "Participants"
+msgid "Participant Answers"
+msgstr "شرکت کنندگان"
+
+#: .\dev\settings.py:125
+msgid "Persian"
+msgstr ""
+
+#: .\dev\settings.py:126
+msgid "English"
+msgstr ""
+
+#: .\form\templates\form\create.html:70
+msgid "Create new form"
+msgstr "ساخت فرم جدید"
+
+#: .\form\templates\form\create.html:82
+msgid "Create a new question"
+msgstr "افزودن سوال جدید"
+
+#: .\form\templates\form\create.html:83
+msgid "Create this form"
+msgstr "ساخت این فرم"

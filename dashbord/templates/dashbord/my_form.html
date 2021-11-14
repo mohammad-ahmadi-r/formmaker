@@ -1,6 +1,10 @@
 {% extends "dashbord/base.html" %}
-{% block content %}
 <!doctype html>
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+{% if LANGUAGE_CODE == 'en'%}
+  {% block content %}
 <!--
 {% if message %}
 <div>
@@ -14,19 +18,38 @@
   </div>
 {% endif %}
 -->
-      <div class="container">
-          <div class="row">
-            {% for f in forms %}
-              <div class="col-sm-4">
-                <div class="card">
-                  <div class="card-body">
-                      <h5 class="card-title">Form : {{f.name}}</h5>
-                      <a href="/d/{{f.id}}/" class="btn btn-dark" style="color:white">View Stats</a>
-                      <a href="/form/del/{{f.id}}/" class="btn btn-warning">Delete Form </a>
+        <div class="container">
+            <div class="row">
+              {% for f in forms %}
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Form : {{f.name}}</h5>
+                        <a href="/d/{{f.id}}/" class="btn btn-dark" style="color:white">View Stats</a>
+                        <a href="/form/del/{{f.id}}/" class="btn btn-warning">Delete Form </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            {% endfor %}
-          </div>
-      </div>
-{% endblock %}
+              {% endfor %}
+            </div>
+        </div>
+  {% endblock %}
+{% else %}
+  {% block contant %}
+        <div class="container">
+            <div class="row">
+              {% for f in forms %}
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{f.name}} : فرم</h5>
+                        <a href="/d/{{f.id}}/" class="btn btn-dark" style="color:white">نمایش وضعیت </a>
+                        <a href="/form/del/{{f.id}}/" class="btn btn-warning">حذف فرم </a>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+        </div>
+  {% endblock %}
+{% endif %}

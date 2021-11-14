@@ -1,22 +1,40 @@
 {% extends 'dashbord/base.html' %}
-{% block content %}
-  {% block title %}
-      Form
+{% load static %}
+{% load i18n %}
+{% if LANGUAGE_CODE == 'en'%}
+  {% block content %}
+    {% block main %}
+        <h1>{{name}}</h1>
+          <form method="POST" action="{% url 'submit-form' form_id %}">
+<!--          <input placeholder="Enter your name" name="paname" class="form-control"> -->
+            {% csrf_token %}
+              {% for i in inputs %}
+                  <div>
+                      <input placeholder="{{ i.label }}" name="{{ i.id }}" class="form-control">
+                  </div>
+                  <br>
+              {% endfor %}
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+  <!--      <button type="submit" class="btn btn-primary">Pdf</button>-->
+    {% endblock %}
   {% endblock %}
-
-  {% block main %}
-      <h1>{{name}}</h1>
-        <form method="POST" action="{% url 'submit-form' form_id %}">
-<!--        <form method="POST" action="/form/s/{{ form_id }}/">-->
-          {% csrf_token %}
-            {% for i in inputs %}
-                <div>
-                    <input placeholder="{{ i.label }}" name="{{ i.id }}" class="form-control">
-                </div>
-                <br>
-            {% endfor %}
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-<!--      <button type="submit" class="btn btn-primary">Pdf</button>-->
+{% else %}
+  {% block contant %}
+    {% block maain %}
+        <h1>{{name}}</h1>
+          <form method="POST" action="{% url 'submit-form' form_id %}">
+  <!--        <form method="POST" action="/form/s/{{ form_id }}/">-->
+            {% csrf_token %}
+              {% for i in inputs %}
+                  <div>
+                      <input placeholder="{{ i.label }}" name="{{ i.id }}" class="form-control">
+                  </div>
+                  <br>
+              {% endfor %}
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+  <!--      <button type="submit" class="btn btn-primary">Pdf</button>-->
+    {% endblock %}
   {% endblock %}
-{% endblock %}
+{% endif %}

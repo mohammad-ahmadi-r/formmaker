@@ -7,6 +7,7 @@ from form.models import models
 from django.contrib.auth.decorators import login_required
 from django.template.loader import get_template
 import datetime
+from django.utils.translation import get_language , activate , gettext
 
 def view_submission(request , form_id , submission_id):
     form = Form.objects.get(id=form_id)
