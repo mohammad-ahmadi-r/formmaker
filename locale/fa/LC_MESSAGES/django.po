@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-14 11:47+0330\n"
+"POT-Creation-Date: 2021-11-15 11:48+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,72 +18,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\atent\templates\atent\forgot-password.html:27
-#: .\atent\templates\atent\forgot-password.html:31
-#: .\atent\templates\atent\reset-password.html:27
-msgid "Forgot Password"
-msgstr "قراموشی  رمز"
-
-#: .\atent\templates\atent\forgot-password.html:39
-#: .\atent\templates\atent\reset-password.html:39
-msgid "Submit"
-msgstr "ثبت"
-
-#: .\atent\templates\atent\login.html:59
-#: .\atent\templates\atent\register.html:63
-msgid "dashbord"
-msgstr "داشبورد"
-
-#: .\atent\templates\atent\login.html:66
-#: .\atent\templates\atent\register.html:70
-msgid "Username"
-msgstr "نام عبور"
-
-#: .\atent\templates\atent\login.html:68
-msgid "\"At least 3 charachter\""
-msgstr ""
-
-#: .\atent\templates\atent\login.html:72
-#: .\atent\templates\atent\register.html:76
-msgid "Password"
-msgstr "رمز"
-
-#: .\atent\templates\atent\login.html:74
-msgid "\"Use numbers and words\""
-msgstr ""
-
-#: .\atent\templates\atent\login.html:79
-msgid "Login"
-msgstr "ورود"
-
-#: .\atent\templates\atent\login.html:85
-msgid "Not register?"
-msgstr "ثبت نام نکرده اید؟"
-
-#: .\atent\templates\atent\register.html:82
-msgid "Email"
-msgstr "ایمیل"
-
-#: .\atent\templates\atent\register.html:89
-msgid "Register"
-msgstr "ثبت نام"
-
-#: .\atent\templates\atent\reset-password.html:31
-msgid "Change password for"
-msgstr "تغیرر رمز برای"
-
-#: .\dashbord\templates\dashbord\base.html:170
-#: .\dashbord\templates\dashbord\base.html:400
+#: .\dashbord\templates\dashbord\base.html:166
+#: .\dashbord\templates\dashbord\base.html:248
 msgid "Go"
 msgstr "برو"
 
-#: .\dashbord\templates\dashbord\base.html:219
-#: .\dashbord\templates\dashbord\base.html:449
+#: .\dashbord\templates\dashbord\base.html:215
+#: .\dashbord\templates\dashbord\base.html:297
 msgid "My form"
 msgstr "فرم های من"
 
-#: .\dashbord\templates\dashbord\base.html:224
-#: .\dashbord\templates\dashbord\base.html:452
+#: .\dashbord\templates\dashbord\base.html:220
+#: .\dashbord\templates\dashbord\base.html:300
 msgid "Form maker"
 msgstr "فرم ساز"
 
@@ -117,11 +63,7 @@ msgstr "لینک فرم"
 msgid "Participants"
 msgstr "شرکت کنندگان"
 
-#: .\dashbord\templates\dashbord\user-response.html:28
-msgid "Your Answers"
-msgstr "پاسخ های شما"
-
-#: .\dashbord\templates\dashbord\view-response.html:34
+#: .\dashbord\templates\dashbord\view-response.html:35
 #, fuzzy
 #| msgid "Participants"
 msgid "Participant Answers"
@@ -146,3 +88,36 @@ msgstr "افزودن سوال جدید"
 #: .\form\templates\form\create.html:83
 msgid "Create this form"
 msgstr "ساخت این فرم"
+
+#~ msgid "Forgot Password"
+#~ msgstr "قراموشی  رمز"
+
+#~ msgid "Submit"
+#~ msgstr "ثبت"
+
+#~ msgid "dashbord"
+#~ msgstr "داشبورد"
+
+#~ msgid "Username"
+#~ msgstr "نام عبور"
+
+#~ msgid "Password"
+#~ msgstr "رمز"
+
+#~ msgid "Login"
+#~ msgstr "ورود"
+
+#~ msgid "Not register?"
+#~ msgstr "ثبت نام نکرده اید؟"
+
+#~ msgid "Email"
+#~ msgstr "ایمیل"
+
+#~ msgid "Register"
+#~ msgstr "ثبت نام"
+
+#~ msgid "Change password for"
+#~ msgstr "تغیرر رمز برای"
+
+#~ msgid "Your Answers"
+#~ msgstr "پاسخ های شما"

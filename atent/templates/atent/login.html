@@ -1,6 +1,7 @@
 {% extends 'dashbord/base.html' %}
 {% load static %}
 {% load i18n %}
+
 {% if LANGUAGE_CODE == 'en'%}
   {% block content %}
   {% if message %}
@@ -52,37 +53,37 @@
   {% endif %}
 
   <!DOCTYPE html>
-  <html lang="en">
+  <html lang="fa">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width , initial-scale=1.0">
-    <title>{% translate 'dashbord' %}</title>
+    <title>داشبورد</title>
   </head>
   <body>
     <div class="col-md-6 col-md-offset-3"><br>
       <form method="POST">
         {% csrf_token %}
         <div class="form-group">
-          <label for="username">{% translate 'Username' %}</label>
+          <label for="username">نام کاربری</label>
           <div class="col-sm-10">
             <input type="text" name="username" class="form-control" placeholder="حداقل 3 کاراکتر" required pattern=".{3,}">
           </div>
         </div>
         <div class="form-group">
-          <label for="password">{% translate 'Password' %}</label>
+          <label for="password">رمز عبور</label>
           <div class="col-sm-10">
             <input type="password" name="password" class="form-control" placeholder="از اعداد و ارقام استفاده کنید" required pattern=".{3,}">
           </div>
         </div>
         <div class="form-group">
           <div>
-            <button type="submit" class="btn btn-dark">{% translate 'Login' %}</button>
+            <button type="submit" class="btn btn-dark">ورود</button>
           </div>
         </div>
       </form>
     </div>
     <br>
-    <a href="/auth/register/" style="color:black">{% translate 'Not register?' %}</a>
+    <a href="/auth/register/" style="color:black">ثبت نام نکرده اید؟</a>
   </body>
   {% endblock %}
 {% endif %}
