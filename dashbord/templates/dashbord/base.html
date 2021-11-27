@@ -41,7 +41,7 @@
         .dropdown-content {
         display: none;
         position: absolute;
-        background-color: #31A6A3;
+        background-color: #333;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
@@ -143,6 +143,26 @@
     <body class="no-js" lang="en" dir="ltr">
       <div class="navbar">
         <a href="{% url 'index' %}" style="color:#31A6A3">home</a>
+        <a href="{% url 'create' %}" style="color:#31A6A3">create form</a>
+        <div class="dropdown">
+          <button class="dropbtn" style="color:#31A6A3">User
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            {% if user.is_authenticated %}
+            <div class="mr-2">
+              <div class="">
+                {{ user.get_username }}
+              </div>
+              <a href="{% url 'logout'%}?next={{request.path}}" style="color:#31A6A3">Logout</a>
+            </div>
+            {% else %}
+            <a href="{% url 'login'%}?next={{request.path}}" style="color:#31A6A3">Login</a>
+            {% endif %}
+            <a href="{% url 'register' %}" style="color:#31A6A3">register</a>
+            <a href="{% url 'forgot_password' %}" style="color:#31A6A3">forgot pass</a>
+          </div>
+        </div>
         <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
           <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
           <select style="background-color:#31A6A3" name="language">
@@ -157,26 +177,6 @@
           </select>
           <input style="background-color:#31A6A3" type="submit" value="{% translate 'Go' %}">
         </form>
-        <div class="dropdown">
-          <button class="dropbtn" style="color:#31A6A3">User
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            {% if user.is_authenticated %}
-            <div class="mr-2">
-              <div class="">
-                {{ user.get_username }}
-              </div>
-              <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
-            </div>
-            {% else %}
-              <a href="{% url 'login'%}?next={{request.path}}">Login</a>
-            {% endif %}
-              <a href="{% url 'register' %}">register</a>
-              <a href="{% url 'forgot_password' %}">forgot pass</a>
-          </div>
-        </div>
-        <a href="{% url 'create' %}" style="color:#31A6A3">create form</a>
         <a href="{% url 'myform' %}" style="color:#31A6A3">My form</a>
       </div>
 
@@ -194,20 +194,7 @@
     <body class="no-js" lang="en" dir="rtl">
       <div class="navbar">
           <a href="{% url 'index' %}" style="color:#31A6A3">خانه</a>
-        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-          <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
-          <select style="background-color:#31A6A3" name="language">
-            {% get_current_language as LANGUAGE_CODE %}
-            {% get_available_languages as LANGUAGES %}
-            {% get_language_info_list for LANGUAGES as languages %}
-            {% for language in languages %}
-            <option style="background-color:#31A6A3" value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-              {{ language.name_local }} ({{ language.code }})
-            </option>
-            {% endfor %}
-          </select>
-          <input style="background-color:#31A6A3" type="submit" value="{% translate 'Go' %}">
-        </form>
+        <a href="{% url 'create' %}" style="color:#31A6A3">ساخت فرم</a>
         <div class="dropdown">
             <button class="dropbtn" style="color:#31A6A3">کاربر
               <i class="fa fa-caret-down"></i>
@@ -218,16 +205,29 @@
                   <div class="">
                     {{ user.get_username }}
                   </div>
-                  <a href="{% url 'logout'%}?next={{request.path}}">خروج</a>
+                  <a href="{% url 'logout'%}?next={{request.path}}" style="color:#31A6A3">خروج</a>
                 </div>
               {% else %}
-                <a href="{% url 'login'%}?next={{request.path}}">ورود</a>
+                <a href="{% url 'login'%}?next={{request.path}}" style="color:#31A6A3">ورود</a>
               {% endif %}
-                <a href="{% url 'register' %}">ثبت نام</a>
-                <a href="{% url 'forgot_password' %}">فراموشی رمز</a>
+                <a href="{% url 'register' %}" style="color:#31A6A3">ثبت نام</a>
+                <a href="{% url 'forgot_password' %}" style="color:#31A6A3">فراموشی رمز</a>
               </div>
           </div>
-        <a href="{% url 'create' %}" style="color:#31A6A3">ساخت فرم</a>
+          <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
+            <select style="background-color:#31A6A3" name="language">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              {% for language in languages %}
+              <option style="background-color:#31A6A3" value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_local }} ({{ language.code }})
+              </option>
+              {% endfor %}
+            </select>
+            <input style="background-color:#31A6A3" type="submit" value="{% translate 'Go' %}">
+          </form>
         <a href="{% url 'myform' %}" style="color:#31A6A3">فرم های من</a>
       </div>
     <div id="content" , name = "content" , class="main">
