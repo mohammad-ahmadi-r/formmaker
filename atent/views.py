@@ -7,9 +7,6 @@ from django.core.mail import send_mail
 import smtplib
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
-gmail_user ="mohamadamdd14@gmail.com"
-#gmail_password = "Mamad@1872#85$"
-gmail_password = "Mamad@1872#85$"
 smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
 smtp_server.ehlo()
 smtp_server.login(gmail_user, gmail_password)
@@ -41,8 +38,8 @@ def register(request):
             smtp.login(gmail_user,gmail_password)
 
             #Defining The Message
-            message = """From: From Person <"mohamadamdd14@gmail.com">
-            To: To Person <mamad.dezel14@gmail.com>
+            message = """From: From Person <"example@gmail.com">
+            To: To Person <user@gmail.com>
             Subject: SMTP e-mail test
 
             http://localhost:8000/auth/verify/{num}
@@ -113,8 +110,8 @@ def forgot_password(request):
             smtp = smtplib.SMTP('smtp.gmail.com', 587)
             smtp.starttls()
             smtp.login(gmail_user,gmail_password)
-            message = """From: From Person <"mohamadamdd14@gmail.com">
-            To: To Person <mamad.dezel14@gmail.com>
+            message = """From: From Person <"example@gmail.com">
+            To: To Person <user@gmail.com>
             Subject: SMTP e-mail test
 
             http://localhost:8000/auth/reset-password/{num}
